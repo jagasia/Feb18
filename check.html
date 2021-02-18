@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn1()
+        {
+            var interests=document.getElementsByName("interests");           //no value here
+            interests.forEach((x)=>console.log((x.checked)?x.value:''));
+        }
+    </script>
+</head>
+<body>
+    <input type="checkbox" name="interests" id="chkEducation" value="Education"><label for="chkEducation">Education</label><br>
+
+    <input type="checkbox" name="interests" id="chkSports" value="Sports"><label for="chkSports">Sports</label><br>
+
+    <input type="checkbox" name="interests" id="chkMusic" value="Music"><label for="chkMusic">Music</label><br>
+
+    <input type="checkbox" name="interests" id="chkDance" value="Dance"><label for="chkDance">Dance</label><br>
+
+    <input type="checkbox" name="interests" id="chkEntertainment" value="Entertainment"><label for="chkEntertainment">Entertainment</label><br>
+
+    <input type="button" value="Submit" onclick="fn1()">
+</body>
+</html>

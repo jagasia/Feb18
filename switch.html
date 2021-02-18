@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn1()
+        {
+            var value=document.getElementById('countries').value;
+            var result='';
+            switch(value)
+            {
+                case 'India':
+                    console.log('INR');
+                    // break;
+                case 'USA':
+                    console.log('USD');
+                    // break;
+                case 'England':
+                    console.log('EUR');
+                    // break;
+                case 'Afghanistan':
+                    console.log('AFN');
+                    // break;
+                default:            //when none of the above cases were matched
+                    console.log('Default');
+                    break;
+            }
+            document.getElementById('div1').innerHTML=result;
+        }
+    </script>
+</head>
+<body>
+    <select name="" id="countries" onchange="fn1()">
+        <option value="">Choose...</option>
+        <option>India</option>
+        <option>USA</option>
+        <option>England</option>
+        <option>Afghanistan</option>
+    </select>
+    <br>
+    <div id="div1"></div>
+</body>
+</html>

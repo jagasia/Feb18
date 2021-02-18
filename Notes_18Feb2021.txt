@@ -1,0 +1,653 @@
+Javascript
+-----------
+1) creating external javascript file
+2) event binding
+
+
+we used 
+	<script> tag in html file to write javascript code
+
+	inline			<input type=button onclick="alert('hi')" />
+	internal		<script>	</script>	either in <head> or <body> or in both locations
+			There can be any number of <script> tag present in a file
+	external
+			lets create a .js file separately and write code for one or more html files
+
+
+Task:
+
+1) create a .js file (anyname.js)
+	write some functions inside the .js file
+2) in html file,
+	refer to that .js file using <script>
+	<script src="anyname.js">			/* the .js file and .html file are in same location */
+	
+3) test the program in a browser
+
+--------------------
+Event binding
+	    <input type="button" value="Ok" onclick="fn1()">
+	here, 'click' is an event
+		fn1() is a function
+	for click event, fn1 is bound in line
+
+	Another way we can do event binding.
+
+TasK:
+	ensure that html file do not contain event binding code.
+	Create all those code in .js file
+	reference that .js file in html using <script src="something.js">
+
+
+
+when i select a date, i want to represent it as a date object
+
+
+what is this lambda?
+	whenever we create anonymous functions, lambda can be used
+
+	what is anonymous function?
+		a function that does not have a name
+
+
+usually a function is defined. Then it is called.	(there are 2 stages)
+But for anonymous functions, they are called where they are defined itself.
+
+
+
+write code to fail.
+Rectify.
+Refactor.
+
+Task:
+	create a .js file that binds a button click event to a named function 
+	i) convert that function into anonymous function and check
+	ii) convert that function into lambda and check
+
+
+
+
+event:
+	change
+	click
+	load
+	focus
+	blur
+	keyup
+	keydown
+	keypress
+	hover
+	
+
+Identify the events in javascript
+
+	change event	(ex: in a text box, when change occurs. But how it is different from blur event)
+
+
+Operators:
+	===	
+	!==
+	?:		is ternary condition operator
+
+	(a>b)?true:false
+
+		
+Logical operators:
+
+!
+&&
+||
+
+
+!true	is false
+!false	is true
+
+&&	is a short cut operator. 
+
+true && true		=	true
+false && true		=	false
+true && false		=	false
+
+||
+
+false || true		=	true
+true	||	false	=	true
+
+
+
+var x=20;
+alert(typeof(x))			//			Number
+
+if(x instanceof Number)			//	returns true/false 	(here, if x is an object of Number class)
+	true		
+
+new operator is used to create objects
+	var dt=new Date();		//new is an operator
+
+
+Programming constructs:
+
+break
+continue
+
+conditional constructs:
+	if
+	if else
+	if else if else
+
+
+	if(x==y)
+		result=100;			//here, the { brackets were not necessary because, there is only 1 line of code. When there are multiple lines, means, more than 1 statement, then { bracket is compulsory
+
+	else
+		result=200;
+
+
+
+	if(x==y)
+		statement1;
+		statement2;
+
+	In above code, there are no { brackets. So "statement1" will become true part. 
+	If condition is false,
+		statement1 is skipped. means, ignored. The program continues from statement2.	
+	If condition is true,
+		statement1 is executed, statement2 also executed.
+
+	if(x==y && x>z)
+
+	if(!x)			if x is a boolean variable	true to false and vice versa
+
+
+
+	while using if with else if and else, 
+		choose a condition most probably true.	that will save unnecessary execution of else if statements
+	because, our program will be more efficient, if it goes through a flow with miminal comparisions or conditions
+
+	
+How to create a dropdownlist in html?
+	<select>
+
+example:
+
+ <select name="" id="countries" onchange="fn1()">
+        <option value="">Choose...</option>
+        <option value="INR">India</option>
+        <option value="USD">USA</option>
+        <option value="EUR">England</option>
+        <option value="AFN">Afghanistan</option>
+    </select>
+
+
+switch case is preferrable in situations where
+	==	is used heavily
+
+	ex:
+		if(value=='India')
+		else if(value=='USA')
+		else if(value=='Afghanistan')
+
+
+what is the significance of "break"?
+
+
+
+switch(x)
+{
+	case 'a':
+	case 'e':
+	case 'i':
+	case 'o':
+	case 'u':
+		console.log('vowel');
+		break;
+}
+
+
+---------------
+while loop
+	while(condition)
+	{
+		execute and then check condition
+	}
+
+
+	as long as the condition is true, continue the loop
+
+	
+        var i=0;
+        while(i<10)
+        {
+            i++;
+            console.log(i);
+        }
+
+
+
+-----------------
+do while loop
+
+        var i=0;
+        do
+        {
+            i++;
+            console.log(i);
+        }while(i<10);
+
+	what is the output for that code
+
+	1 to 10
+
+---------------------
+for loop
+	for(var i=0;i<10;i++)
+	{
+		console.log(i);
+	}
+
+
+
+
+	for(initialization;condition;re-init)		you can skip any of these 3 portions
+	{
+		
+	}
+
+---------------------------
+for-each loop
+
+	for(var x of y)
+	{}
+
+	here, y is an array
+	for each element in the array (y), x will be initialized with the current value
+
+	
+In javascript array values are in square bracket. []
+
+Task:
+	create a html page with a textbox and a button.
+	in the text box, use will enter a sentence.
+	when use clicks the button, only the vowels entered in the textbox should be displayed in a <div>
+
+	Hint:
+		to access each character in a string, use 
+			charAt function
+solution:
+----------
+        function fn1()
+        {
+            var str=document.getElementById('txt').value;
+        
+            for(var i=0;i<str.length;i++)
+            {
+                switch(str.charAt(i))
+                {
+                    case 'a':
+                    case 'e':
+                    case 'i':
+                    case 'o':
+                    case 'u':
+                        // console.log(str.charAt(i));
+                        document.getElementById('result').innerHTML+=str.charAt(i);
+                        break;
+                }
+            }
+        }
+What are the advantages of using switch case over if-else
+
+for(var one of sent){
+                if(one =='a'||one=='e'||one=='i'||one=='o'||one=='u')
+                    document.getElementById('put').innerHTML+=one+' ';
+                
+            }
+
+
+Challenge:
+----------
+There should be a texbox (date) to accept the date of birth.
+This ui control should not allow future date to be selected.
+
+user should not be allowed to choose future date. (not validation after submitting)
+
+
+display();		1
+display();		2
+display();		3
+
+
+for(var i=0;i<3;i++)			1+(4)+3
+	display();			//3
+
+
+11 instructions in for loop
+
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function fn1()
+        {
+            var today=new Date();
+            var iso=today.toISOString();
+            var dt=iso.substring(0,iso.indexOf("T"));
+            console.log(dt);
+            document.getElementById('dob').setAttribute('min',dt);
+        }
+    </script>
+</head>
+<body onload="fn1()">
+    <input type="date" name="" id="dob">
+</body>
+</html>
+
+
+
+When we split a string by a character, we get an array
+
+	ex:		"2021-02-18T28"		after splitting
+			var arr=str.split("T");		//we get an array
+
+	since only one "T" is found, we split it means, array of 2 elements is obtained
+
+	arr[0] is left side of T
+	arr[1] is right side of T
+
+split method uses regular expression
+	T is not a symbol in reg ex, so it is treated as a character
+
+	var str="1,2,3,4,5";
+		if we split by ","		comma is not a symbol i reg ex. so it is a character
+	you will get an arr
+	var arr=str.split(',');			will produced arr an array of [1,2,3,4,5]
+------------
+	var str="127.0.0.1";			dot is a reg ex symbol meaning "any"
+	so if we split by .
+	it will not work
+
+	so we should use
+	var arr=str.split('[.]')		[] makes . as a char and not a symbol
+	(or)
+	var arr=str.split('\\.');		\ is an escape character
+
+
+Javascript function categories:
+-------------------------------
+String functions
+Date functions
+Number functions
+
+
+Activity:
+	Identify string functions in javascript
+	split()		parameters for this function. how this will help us
+
+
+charAt		charAt(index)		returns the character at specified index
+startsWith				returns true if the string starts with specified character
+endsWith				returns true if the string ends with specified character
+includes				returns true if string includes given character
+indexOf					returns the index of specified character in the string. returns -1 if not 						found
+lastIndexOf				returns the index of last occurrence of specified character in the string
+match					returns true if the string matches the reg ex 
+replace					replace a character(s) with another (only first occrrance)
+replaceAll				replace all occurrance of char/string with another
+search					returns position of the char/string found in the string. -1 if not found
+slice					extracts a portion of the string
+split					split by a reg ex
+substr					return a portion of string based on index and specified number of characters
+substring				return a portion of string from index to before end index. till end if end 							index is not specified
+toLowerCase				converts and returns lowercase version of string
+toUpperCase				converts and returns uppercase version of string
+trim					remove spaces in front and rear. Not in between
+valueOf					converts anything into string
+
+
+
+
+
+console.log(str.substr(5,3));           //second parameter is length
+console.log(str.substring(5,6));        //second paramter is end index (before end index only retrieved)
+
+var str="abcdefgh";
+console.log(str.charAt(0));				//returns 'a'		character found at index 0
+
+
+  var str = "Hello world, welcome to the world.";
+  var n = str.includes("world", 12);		//returns true if 'world' is found in str after index 12 onwards
+
+
+
+i get an SMS
+	Please note down this phone number and call immediately. call 8787878787 and if it is not working, call 37373737
+
+how we are able to extract only numbers from the string
+
+
+        function fn1()
+        {
+            var str=document.getElementById('txt').value;
+            console.log(str);
+            var res=str.match(/[0-9]+/g);
+            console.log(res);
+        }
+
+/g		means global	(global means? not only first occurrance. means all occurrance)
+/gi		means global and case insensitive
+
+
+in reg ex
++		1 or more 
+*		0 or more
+?		0 or 1
+
+other multiplicities
+{1,3}		min 1 and max 3
+{1,}		min 1 and max unbounded		similar to +		one or more
+{1,1}		similar to {1}
+{0,}		similar to *
+{0,1}		similar to ?
+
+if symbols should be treated as characters, then use either \\ or []
+
+
+indexOf(character(s))			parameter is string
+search(reg ex)				parameter  is reg exp
+
+Number Functions:
+------------------
+abs
+Math.ceil
+floor
+round
+parseInt
+parseFloat
+isNaN
+Infinity
+isFinite
+
+Math.sqrt			square root
+Math.PI				3.14......			22/7
+Math.cbrt
+
+
+12.3			13, 14, 15,.. are bigger than given number
+
+Math.ceil
+	function returns the smallest integer greater than the given number
+Math.floor
+	function returns the highest integer lesser than the given number
+
+12.3			12, 11, 10, 9, ... are lesser than the given number
+
+if the radius of the wheel is 7
+then the circumference of the wheel is 22
+that is the ratio		22/7
+
+
+Objects:
+	what are objects?
+		objects have
+			properties
+			methods
+
+	in javascript and object can be represented as JSON	(Javascript Object Notation)
+
+	{"username":"rama","password","rama"}
+
+[{"name":"Swift","type":"hatchback","company":"Maruti"},
+{"name":"Swift","type":"hatchback","company":"Maruti"},
+{"name":"Swift","type":"hatchback","company":"Maruti"}]
+
+JSON is an string representation of an object
+
+var car={"name":"Swift","type":"hatchback","company":"Maruti"};
+        console.log(car.company);
+        console.log(car.name);
+        console.log(car.type);
+
+
+when we have a form
+	and user enters data. we should be able to create one object that contains all the values entered by the user
+
+
+Arrays are also objects
+	push method to add elements to the array
+Array Functions:
+	push
+	pop
+	splice
+	forEach
+
+
+why are you subtracting a and b?
+	to compare 2 elements, we subtract one with other. 
+	a-b
+	if we get 0, what does that mean?	they are equal
+
+	a-b
+	if we get positive number?		then a is bigger
+
+	a-b
+	if we get negative number?		than a is smaller
+
+-----------------------------------
+Document Object Model
+	The entire html page is represented as an object 
+	the name of the object is document
+	as like every object,
+		document object also have 
+			properties
+			methods
+
+	getElementById is one method we already used.
+	Lets see other methods:
+
+	getElementsByName
+	-----------------
+
+
+Task:
+	Create a html page and display few check boxes.
+	On clicking a button, display all the options, that user chosen.	(means, whichever check boxes are ticked only should be displayed in console)
+
+
+        function fn1()
+        {
+            var interests=document.getElementsByName("interests");           //no value here
+            //interests is an array
+            for(var i=0;i<interests.length;i++)
+            {
+                if(interests[i].checked)
+                    console.log(interests[i].value);
+            }
+        }
+========================
+
+        function fn1()
+        {
+            var interests=document.getElementsByName("interests");           //no value here
+            //interests is an array
+            for(var x of interests)
+            {
+                if(x.checked)
+                    console.log(x.value);
+            }
+        }
+
+=====================
+
+        function fn1()
+        {
+            var interests=document.getElementsByName("interests");           //no value here
+            interests.forEach((x)=>console.log((x.checked)?x.value:''));
+        }
+
+========================
+
+
+Working with DOM:
+------------------
+	DOM represents document as a tree with root, branches, leaves etc
+	some elements have child elements, siblings, parent elements
+	
+	how we can find an element present in the document.
+		document.getElementById
+		document.getElementsByName
+		
+	every element in a DOM is a node
+
+	A node can be a
+		element
+		attribute
+		value
+		entity
+		processing instruction
+		comment
+
+It is possible to traverse each and every node, attribute, values, comments present in a document using DOM
+
+
+Form Validation using DOM:
+-------------------------
+
+<FORM>
+		User interface elements for user to do data entry. Checking data entry errors is called as validation
+
+</FORM>
+
+
+1) events like
+	focus
+	blur
+	keyup			like password strength, confirm password
+	onsubmit		there will be a form 
+
+
+<form> tag is must, when submit button is used (<input type=submit />)
+and importantly, the form should not be submitted when there are validation errors.
+how to prevent that?
+	prevent default
+
+
+<script>
+        function fn1()
+        {
+            alert('hi');
+            return true;
+        }
+    </script>
+</head>
+<body>
+<form onsubmit="return fn1()">
+    <input type="text" name="" id="">
+    <input type="submit" value="Submit">
+</form>
+</body>
+
+
+not only using html 5 validation.
+you should write some javascript functions that will validate like pwd, cpwd
+based on errors, if any it should not submit the form
+
+if no errors, submit the form (all data entry will vanish)

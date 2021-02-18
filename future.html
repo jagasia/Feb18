@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn1()
+        {
+            var today=new Date();
+            console.log(today.toISOString());
+            var iso=today.toISOString();
+        
+            var dt=iso.substring(0,iso.indexOf("T"));
+            console.log(dt);
+            document.getElementById('dob').setAttribute('max',dt);
+            document.getElementById('dob').setAttribute('style','color:blue;background-color:yellow;border-color:red');
+            
+        }
+    </script>
+</head>
+<body onload="fn1()">
+    <input type="date" name="" id="dob">
+    <!-- <input type="date" name="" id="" max='2021-02-18' value=""> -->
+</body>
+</html>
